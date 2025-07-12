@@ -1,3 +1,1 @@
-Implementation of Echo-ODE
-
-Run main.py
+Implementation of Echo-ODE with torch=3.7  Run main.py

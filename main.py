@@ -1,0 +1,50 @@
+from trainer import Trainer
+from parser_options import ParserOptions
+from util.general_functions import print_training_info
+import torch
+torch.cuda.manual_seed_all(0)
+torch.manual_seed(0)
+
+
+def main():
+    args = ParserOptions().parse()  # get training options
+
+    #echo_lstm
+    # args.with_skip = 1
+    # args.onlysegskip = 1
+    # args.skip_from = "rec"
+    # args.sequence_model = "convlstm"
+    # args.reconstruct = 1
+
+    #convlstm
+    args.with_skip = 1
+    args.onlysegskip = 1
+    args.skip_from = "enc"
+    args.sequence_model = "convlstm"
+    args.reconstruct = 0
+
+    trainer = Trainer(args)
+
+    # print_training_info(args)
+
+    for epoch in range(trainer.args.start_epoch, trainer.args.epochs):
+        trainer.training(epoch)
+
+        if epoch % args.eval_interval == (args.eval_interval - 1):
+            trainer.validation(epoch)
+        if (epoch+1)%50==0:
+            trainer.save_network_me(epoch)
+
+    if args.segmentation:
+        # trainer.visualization(args.vis_split)
+        # trainer.visualization("ed")
+        # trainer.visualization("es")
+        # trainer.visualization("abnormal")
+        trainer.predDemoVideo()
+        trainer.save_network()
+
+    trainer.summary.writer.add_scalar('val/bestmIoU', trainer.best_mIoU, args.epochs)
+    trainer.summary.writer.close()
+
+if __name__ == "__main__":
+   main()

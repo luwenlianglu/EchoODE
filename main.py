@@ -32,14 +32,9 @@ def main(model_name="echo_ode"):
 
         if epoch % args.eval_interval == (args.eval_interval - 1):
             trainer.validation(epoch)
-        if (epoch+1)%50==0:
-            trainer.save_network_me(epoch)
 
     if args.segmentation:
-        # trainer.visualization(args.vis_split)
-        # trainer.visualization("ed")
-        # trainer.visualization("es")
-        # trainer.visualization("abnormal")
+        trainer.visualization(args.vis_split)
         trainer.predDemoVideo()
         trainer.save_network()
 

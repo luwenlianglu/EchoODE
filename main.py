@@ -6,22 +6,22 @@ torch.cuda.manual_seed_all(0)
 torch.manual_seed(0)
 
 
-def main():
+def main(model_name="echo_ode"):
     args = ParserOptions().parse()  # get training options
 
-    #echo_lstm
-    # args.with_skip = 1
-    # args.onlysegskip = 1
-    # args.skip_from = "rec"
-    # args.sequence_model = "convlstm"
-    # args.reconstruct = 1
+    if model_name == "echo_lstm":
+        args.with_skip = 1
+        args.onlysegskip = 1
+        args.skip_from = "rec"
+        args.sequence_model = "convlstm"
+        args.reconstruct = 1
 
-    #convlstm
-    args.with_skip = 1
-    args.onlysegskip = 1
-    args.skip_from = "enc"
-    args.sequence_model = "convlstm"
-    args.reconstruct = 0
+    if model_name == "convlstm":
+        args.with_skip = 1
+        args.onlysegskip = 1
+        args.skip_from = "enc"
+        args.sequence_model = "convlstm"
+        args.reconstruct = 0
 
     trainer = Trainer(args)
 
@@ -47,4 +47,5 @@ def main():
     trainer.summary.writer.close()
 
 if __name__ == "__main__":
-   main()
+    #model_name choice ["echo_ode", "echo_lstm", "convlstm"]
+   main(model_name="echo_ode")

@@ -17,7 +17,7 @@ pip install -r requirements.txt
 
 4. Download the data and run training:
 ```bash
-python train.py --amp
+python main.py --amp
 ```
 ## Citation
 Original paper by Wenliang Lu:

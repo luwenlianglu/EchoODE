@@ -6,7 +6,7 @@ import numpy as np
 import os
 
 from dataloader.cityscapes import CityScapes
-from dataloader.echocardiac import echoCardiac
+#from dataloader.echocardiac import echoCardiac
 from util.general_functions import get_model, get_optimizer, make_data_loader, plot_grad_flow, calc_width, count_parameters
 from util.lr_scheduler import LR_Scheduler, create_lr_scheduler
 from util.losses import get_loss_function, get_reconstruction_loss_function, FocalLoss2d, MultiClassDiceLoss

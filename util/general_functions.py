@@ -10,7 +10,7 @@ from matplotlib.lines import Line2D
 
 from dataloader import cityscapes
 from dataloader import echocardiac
-from dataloader import echo_dynamic
+#from dataloader import echo_dynamic
 from core.deeplabv3_plus import DeepLabv3_plus
 from core.pspnet import PSPNet
 from core.unet import UNet

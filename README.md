@@ -19,3 +19,9 @@ pip install -r requirements.txt
 ```bash
 python train.py --amp
 ```
+## Citation
+Original paper by Wenliang Lu:
+
+[Echo-ODE: A Dynamics Modeling Network with Neural ODE for Temporally Consistent Segmentation of Video Echocardiograms](https://github.com/luwenlianglu/EchoODE)
+## network architecture
+![network architecture](https://github.com/luwenlianglu/EchoODE/blob/master/overview.png)

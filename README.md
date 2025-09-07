@@ -20,6 +20,6 @@ python main.py
 ## Citation
 Original paper by Wenliang Lu:
 
-[Echo-ODE: A Dynamics Modeling Network with Neural ODE for Temporally Consistent Segmentation of Video Echocardiograms](https://github.com/luwenlianglu/EchoODE)
+[Echo-ODE: A Dynamics Modeling Network with Neural ODE for Temporally Consistent Segmentation of Video Echocardiograms](https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2025.1629121/full)
 ## Network architecture
 ![network architecture](https://github.com/luwenlianglu/EchoODE/blob/master/overview.png)
